@@ -3,7 +3,7 @@ const request = require('request');
 
 
 const forecast = (coordinates , callback) => {
-  const Key  = '4434527c45696671cb74d7fc3317bc35';
+  const Key  = '';
   const OWurl  = `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${Key}`;
   request({url : OWurl , json : true},(error, response, body) => {
     if(error) {
