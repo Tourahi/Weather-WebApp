@@ -55,12 +55,31 @@ app.get('/GetWeather', (req , res) => {
       error : "You must send an address"
     });
   }
-  res.send(
-    {
-      forcast  : "Snow",
-      location : req.query.address
+
+  geocode(req.query.address , (err , data) => {
+    if(err){
+      return res.send({
+        error : err
+      });
     }
-  );
+    else {
+      forecast(data , (err , result) => {
+        if(err) {
+          return res.send({
+            error : err
+          });
+        }
+        else{
+          res.send(
+            {
+              temp  : result.temp,
+              location : result.name
+            }
+          );
+        }
+      })
+    }
+  })
 });
 
 app.get('/test' , (req , res) => {
