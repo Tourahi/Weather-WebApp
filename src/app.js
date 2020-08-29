@@ -2,6 +2,9 @@ const path    = require('path');
 const express = require('express');
 const hbs     = require('hbs');
 
+//For the weather API and Data
+const geocode = require('./utils/geocode.js');
+const forecast = require('./utils/forecast.js');
 // console.log(__dirname);
 // console.log(path.join(__dirname , '../public'));
 
@@ -40,12 +43,38 @@ app.get('/help', function (req, res) {
   res.render('help' , {title : 'Help' , message : 'This is the help page'});
 });
 
+
+
 app.get('/weather', (req , res) => {
-  res.send('<h1>weather</h1>');
+  res.render('weather' , {title : 'Weather' , message : 'This is the weather page'});
 });
 
-app.get('/help/*' , (req , res) => {
-    res.render('notFound' , {message : 'Help Article Not found.' , title : '404'});
+app.get('/GetWeather', (req , res) => {
+  if(!req.query.address) {
+    return res.send({
+      error : "You must send an address"
+    });
+  }
+  res.send(
+    {
+      forcast  : "Snow",
+      location : req.query.address
+    }
+  );
+});
+
+app.get('/test' , (req , res) => {
+  if(!req.query.key){
+    return res.send({
+      error : "You must provide the key"
+    });
+  }
+
+    console.log(req.query);
+      res.send({
+          prod : []
+    });
+
 });
 
 app.get('*' , (red , res) => {
