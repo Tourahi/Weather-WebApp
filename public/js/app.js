@@ -1,8 +1,21 @@
+const weatherForm = document.getElementById('Wform');
+const searchELem  = document.getElementById('WSearch');
+const locationMsg = document.getElementById('location');
+const tmpMsg      = document.getElementById('temp');
 
-
-
-fetch('GetWeather?address=rabat').then((res) => {
-  res.json().then((data) => {
-    console.log(data);
+weatherForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  fetch('GetWeather?address='+searchELem.value).then((res) => {
+    res.json().then((data) => {
+      if(data.error) {
+        console.log("error : " + data.error);
+      }
+      else{
+        locationMsg.textContent = '';
+        tmpMsg.textContent = '';
+        locationMsg.textContent = data.location;
+        tmpMsg.textContent      = data.temp;
+      }
+    })
   })
 })

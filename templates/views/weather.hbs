@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <script type="text/javascript" src="/js/app.js"></script>
     {{>meta}}
   </head>
   <body>
     <div class="main-content">
       {{>header}}
+      <form class="" id="Wform" action="" method="">
+        <input type="text" name="" id="WSearch" value="" placeholder="Location">
+        <button type="submit" name="button">Search</button>
+      </form>
+      <div class="unit">
+        <h4 style="display:inline-block" >Location : </h4>
+        <p style="display:inline-block" id="location"></p>
+      </div>
+      <div class="unit">
+        <h4 style="display:inline-block" >Temperature : </h4>
+        <p style="display:inline-block" id="temp"></p>
+      </div>
     </div>
     {{>fouter}}
+    <script type="text/javascript" src="/js/app.js"></script>
   </body>
 </html>
