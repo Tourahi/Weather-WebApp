@@ -35,6 +35,40 @@ header a{
   text-decoration: none;
 }
 
+.btn {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    color: #blue;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn:hover{
+  background: #1e1e24;
+  color: #fff;
+}
+
+.txtinput {
+  height: 35px;
+  border-radius: 15px;
+  padding-left: 10px;
+  font-size: 1rem;
+  position: relative;
+}
+
+.unit {
+  background: #A39BA245;
+  border-radius: 15px;
+  padding-left: 15px;
+  margin: 15px 0px 15px 0px;
+}
+
 .portrait {
   width: 250px;
 }

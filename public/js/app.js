@@ -8,7 +8,9 @@ weatherForm.addEventListener('submit', (e) => {
   fetch('GetWeather?address='+searchELem.value).then((res) => {
     res.json().then((data) => {
       if(data.error) {
-        console.log("error : " + data.error);
+        locationMsg.textContent = '';
+        tmpMsg.textContent = '';
+        locationMsg.textContent = data.error;
       }
       else{
         locationMsg.textContent = '';
